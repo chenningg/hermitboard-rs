@@ -1,0 +1,29 @@
+[package]
+name = "hermitboard"
+version = "0.1.0"
+authors = ["Chen Ning <chenningg97@gmail.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+# Web
+axum = "0.5"
+hyper = { version = "0.14", features = ["full"] }
+tokio = { version = "1.20", features = ["full"] }
+tower = "0.4"
+
+# GraphQL
+async-graphql = { version="4.0", features = ["tracing", "chrono", "chrono-tz"] }
+async-graphql-axum = "4.0"
+
+# Serialization
+serde = "1.0"
+serde_json = "1.0"
+chrono = "0.4"
+chrono-tz = "0.6"
+
+# Telemetry
+tracing = "0.1"
+tracing-opentelemetry = "0.17.4"
