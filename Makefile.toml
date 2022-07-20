@@ -1,0 +1,6 @@
+[env]
+HERMITBOARD_CONFIG = "./config.toml"
+
+[tasks.dev]
+command = "cargo"
+args = ["watch", "-x", "run"]

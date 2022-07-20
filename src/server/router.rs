@@ -1,4 +1,4 @@
-use crate::schema::{self, UnifiedSchema};
+use crate::server::schema::{self, UnifiedSchema};
 use async_graphql::http::{playground_source, GraphQLPlaygroundConfig};
 use async_graphql_axum::{GraphQLRequest, GraphQLResponse};
 use axum::{
@@ -12,13 +12,14 @@ async fn graphql_handler(schema: Extension<UnifiedSchema>, req: GraphQLRequest) 
     schema.execute(req.into_inner()).await.into()
 }
 
-// Generates the GraphQL playground.
+// Generates the GraphQL playground pointing to the API endpoint.
 async fn graphql_playground() -> impl IntoResponse {
-    response::Html(playground_source(GraphQLPlaygroundConfig::new("/graphql")))
+    response::Html(playground_source(GraphQLPlaygroundConfig::new("/api")))
 }
 
 // Initializes routing routes.
 pub fn init_router() -> Router {
+    // Build unified GraphQL schema.
     let schema = schema::build_schema().finish();
 
     let router = Router::new()
