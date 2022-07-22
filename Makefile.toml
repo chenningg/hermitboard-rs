@@ -1,5 +1,5 @@
 [env]
-HERMITBOARD_CONFIG = "./config.toml"
+HERMITBOARD_APP_CONFIG = "src/config/dev.toml"
 
 [tasks.dev]
 command = "cargo"

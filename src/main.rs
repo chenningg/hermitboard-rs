@@ -1,18 +1,18 @@
 mod account;
 mod config;
-mod db;
+mod database;
 mod server;
 
 use crate::server::router;
 use axum::Router;
-use dotenv::dotenv;
+use config::{ConfigService, IConfigService};
 use tracing_subscriber::FmtSubscriber;
 
 #[tokio::main]
 async fn main() {
     // Load in configuration file.
-    let config = config::load_config();
-    println!("{:?}", &config);
+    let config_service = ConfigService {};
+    let config = config_service.load_config();
 
     // Construct a subscriber that prints formatted traces to stdout.
     let subscriber = FmtSubscriber::new();

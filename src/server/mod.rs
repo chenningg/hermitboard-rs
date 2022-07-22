@@ -1,3 +1,3 @@
-pub mod health_query;
+mod health_query;
 pub mod router;
-pub mod schema;
+mod schema;

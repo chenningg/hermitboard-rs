@@ -1,4 +1,4 @@
-use crate::server::schema::{self, UnifiedSchema};
+use super::schema::{self, UnifiedSchema};
 use async_graphql::http::{playground_source, GraphQLPlaygroundConfig};
 use async_graphql_axum::{GraphQLRequest, GraphQLResponse};
 use axum::{

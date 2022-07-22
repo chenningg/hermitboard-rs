@@ -9,7 +9,7 @@ edition = "2021"
 [dependencies]
 
 # Config
-figment = { version = "0.10", features = ["toml", "env"] }
+figment = { version = "0.10", features = ["test", "env", "toml"] }
 
 # Web
 axum = "0.5"
@@ -18,14 +18,23 @@ tokio = { version = "1.20", features = ["full"] }
 tower = "0.4"
 
 # GraphQL
-async-graphql = { version="4.0", features = ["tracing", "chrono", "chrono-tz"] }
+async-graphql = { version = "4.0", features = ["tracing"] }
 async-graphql-axum = "4.0"
 
 # Database
-sqlx = { version = "0.6", features = [ "runtime-tokio-rustls", "postgres", "uuid", "migrate", "macros", "time", "json", "offline" ] }
+sqlx = { version = "0.6", features = [
+    "runtime-tokio-rustls",
+    "postgres",
+    "uuid",
+    "migrate",
+    "macros",
+    "time",
+    "json",
+    "offline",
+] }
 
 # Serialization
-serde = "1.0"
+serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 time = "0.3"
 ulid = "0.6"
