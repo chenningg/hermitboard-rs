@@ -42,6 +42,6 @@ impl From<&str> for Env {
 
 #[derive(Debug, PartialEq, Deserialize)]
 pub struct AppConfig {
-    config: String, // Filepath to the config file.
-    env: Env,       // Application environment (DEVELOPMENT|STAGING|TESTING|PRODUCTION).
+    pub config: String, // Filepath to the config file.
+    pub env: Env,       // Application environment (DEVELOPMENT|STAGING|TESTING|PRODUCTION).
 }

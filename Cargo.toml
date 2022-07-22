@@ -46,3 +46,6 @@ anyhow = "1.0"
 # Telemetry
 tracing = "0.1"
 tracing-subscriber = "0.3"
+
+# Miscellaneous
+async-trait = "0.1"

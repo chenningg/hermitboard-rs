@@ -45,5 +45,5 @@ impl From<&str> for LogLevel {
 
 #[derive(Debug, PartialEq, Deserialize)]
 pub struct LogConfig {
-    level: LogLevel, // Logging level.
+    pub level: LogLevel, // Logging level.
 }

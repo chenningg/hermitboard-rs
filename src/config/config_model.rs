@@ -5,7 +5,7 @@ use serde::Deserialize;
 
 #[derive(Debug, PartialEq, Deserialize)]
 pub struct Config {
-    app: AppConfig,
-    log: LogConfig,
-    database: DatabaseConfig,
+    pub app: AppConfig,
+    pub log: LogConfig,
+    pub database: DatabaseConfig,
 }
