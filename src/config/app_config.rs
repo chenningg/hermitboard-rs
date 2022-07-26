@@ -1,8 +1,8 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use std::fmt;
 use tracing::warn;
 
-#[derive(Debug, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum Env {
     Development,
     Testing,
@@ -21,8 +21,8 @@ impl fmt::Display for Env {
     }
 }
 
-impl From<&str> for Env {
-    fn from(input: &str) -> Self {
+impl From<String> for Env {
+    fn from(input: String) -> Self {
         let uppercase_str = input.to_ascii_uppercase();
         match uppercase_str.as_str() {
             "DEVELOPMENT" => Env::Development,
@@ -40,7 +40,7 @@ impl From<&str> for Env {
     }
 }
 
-#[derive(Debug, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub struct AppConfig {
     pub config: String, // Filepath to the config file.
     pub env: Env,       // Application environment (DEVELOPMENT|STAGING|TESTING|PRODUCTION).

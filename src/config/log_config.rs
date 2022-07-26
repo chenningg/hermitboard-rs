@@ -1,8 +1,8 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use std::fmt;
 use tracing::warn;
 
-#[derive(Debug, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum LogLevel {
     Trace,
     Debug,
@@ -25,8 +25,8 @@ impl fmt::Display for LogLevel {
     }
 }
 
-impl From<&str> for LogLevel {
-    fn from(input: &str) -> Self {
+impl From<String> for LogLevel {
+    fn from(input: String) -> Self {
         let uppercase_str = input.to_ascii_uppercase();
         match uppercase_str.as_str() {
             "TRACE" => LogLevel::Trace,
@@ -43,7 +43,7 @@ impl From<&str> for LogLevel {
     }
 }
 
-#[derive(Debug, PartialEq, Deserialize)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub struct LogConfig {
     pub level: LogLevel, // Logging level.
 }

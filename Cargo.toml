@@ -9,10 +9,18 @@ edition = "2021"
 [dependencies]
 
 # Config
-figment = { version = "0.10", features = ["test", "env", "toml"] }
+dotenv = "0.15.0"
+figment = { version = "0.10", features = [
+    "test",
+    "env",
+    "toml",
+    "yaml",
+    "json",
+] }
 
 # Web
 axum = "0.5"
+axum-macros = "0.2"
 hyper = { version = "0.14", features = ["full"] }
 tokio = { version = "1.20", features = ["full"] }
 tower = "0.4"
